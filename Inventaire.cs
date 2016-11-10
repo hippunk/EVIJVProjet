@@ -14,7 +14,7 @@ namespace Test
 		}
 
 
-		public void AddObjets(string name, int quantite, int limite)
+		public void AddObjets(string name, string description, int quantite, int limite)
 		{
 			bool present = false;
 			for (int i = 0; i < listeObjet.Count; i++)
@@ -32,7 +32,21 @@ namespace Test
 				ElementInventaire elem = new ElementInventaire(name);
 				elem.setLimite(limite);
 				elem.AddQuantite(quantite);
+				elem.setDescription(description);
 				listeObjet.Add(elem);
+			}
+		}
+
+
+		public void AddObjets(string name, int quantite)
+		{
+			for (int i = 0; i < listeObjet.Count; i++)
+			{
+				if (listeObjet.ElementAt(i).Objet() == name)
+				{
+					listeObjet.ElementAt(i).AddQuantite(quantite);
+					break;
+				}
 			}
 		}
 

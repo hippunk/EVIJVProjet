@@ -4,11 +4,14 @@ namespace Test
 	public class ElementInventaire
 	{
 		private string objet;
+		private string description;
 		private int quantite;
 		private int limite;
+
 		public ElementInventaire(string obj)
 		{
 			this.objet = obj;
+			this.description = "";
 			this.quantite = 0;
 			this.limite = -1;
 		}
@@ -29,6 +32,16 @@ namespace Test
 			{
 				this.quantite = 0;
 			}
+		}
+
+		public string getDescription()
+		{
+			return this.description;
+		}
+
+		public void setDescription(string des)
+		{
+			this.description = des;
 		}
 
 		public void setLimite(int lim)
@@ -53,7 +66,7 @@ namespace Test
 
 		public string Affiche()
 		{
-			return "[ " + this.objet + " -> [ Quantite : " + this.quantite + ", Limite :" + this.limite + " ]";
+			return "[ " + this.objet + " -> [ Quantite : " + this.quantite + ", Limite :" + this.limite +", Description :" + this.description + " ]";
 		}
 	}
 }
